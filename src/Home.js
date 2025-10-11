@@ -4,11 +4,11 @@ const Home = () => {
   const str = "THỨ BẢY NGÀY 11/10/2025";
 
   // Biến thường
-  var dssv = ["Nguyễn Văn An111", "Trần Văn Ba", "Nguyễn Văn Cường"];
+  const dssv = ["Nguyễn Văn An111", "Trần Văn Ba", "Nguyễn Văn Cường"];
 
   // Biến thường ds2
-  var ds2 = [
-    { id: "001", hoten: "Nguyễn Thị An", lop: "K18", gioitinh: false },
+  const ds2 = [
+    { id: "001", hoten: "Nguyễn Thị An111", lop: "K18", gioitinh: false },
     { id: "002", hoten: "Trần Văn Ba", lop: "K18", gioitinh: true },
     { id: "003", hoten: "Nguyễn Văn Cường", lop: "K18", gioitinh: true },
     { id: "007", hoten: "Nguyễn Văn Bảy", lop: "phicong", gioitinh: true },
@@ -21,24 +21,37 @@ const Home = () => {
     { id: "103", hoten: "Nguyễn Văn Bình", lop: "K19", gioitinh: false },
   ]);
 
+  // State cho ô nhập tên mới
+  const [tenMoi, setTenMoi] = useState("");
+
+  // Hàm cập nhật ds3 khi gõ trong ô input bảng ds3
   const handleChangeDs3 = (id, field, value) => {
-    const newDs3 = ds3.map((item) =>
-      item.id === id ? { ...item, [field]: value } : item
+    setDs3((prevDs3) =>
+      prevDs3.map((item) =>
+        item.id === id ? { ...item, [field]: value } : item
+      )
     );
-    setDs3(newDs3);
   };
 
-  const TestSuaDLds3 = (id) => {
-    const newDs3 = ds3.map((item) =>
-      item.id === id ? { ...item, hoten: "Heroine" } : item
-    );
-    setDs3(newDs3);
+  // Hàm sửa họ tên ds3 bằng giá trị từ ô nhập tênMoi
+  const TestSuaDLds3_aaa = (id) => {
+    if (!tenMoi.trim()) {
+      alert("Vui lòng nhập tên mới trước khi sửa!");
+      return;
+    }
+    const newds3 = ds3.map((phantu) => {
+      if (phantu.id === id) phantu.hoten = tenMoi;
+      return phantu;
+    });
+    setDs3(newds3);
+    setTenMoi("");
   };
 
+  // Nút sửa ds2 (biến thường)
   const TestSuaDLds2 = (id) => {
     ds2.map((item) => {
       if (item.id === id) {
-        item.hoten = "Heroine";
+        item.hoten = "Ronaldo";
         console.log("ds2 item.hoten = " + item.hoten);
       }
       return item;
@@ -47,30 +60,28 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h3>{str}</h3>
-      </div>
+    <div className="home-container">
+      <h3>{str}</h3>
 
       {/* Hiển thị danh sách từ biến thường dssv */}
-      <div>
+      <div className="table1">
         <p>DANH SÁCH SINH VIÊN (biến thường dssv)</p>
         {dssv.map((sv, index) => (
           <p key={index}>{sv}</p>
         ))}
       </div>
 
-      {/* Hiển thị bảng ds2 */}
-      <div className="table1">
+      {/* Hiển thị bảng ds2 (biến thường) */}
+      <div className="table2">
         <p>DANH SÁCH SINH VIÊN ds2 (biến thường)</p>
         <table className="my-table">
           <thead>
             <tr>
-              <td>ID</td>
-              <td>Họ tên</td>
-              <td>Lớp</td>
-              <td>Giới tính</td>
-              <td>Sửa DL</td>
+              <th>ID</th>
+              <th>Họ tên</th>
+              <th>Lớp</th>
+              <th>Giới tính</th>
+              <th>Sửa DL</th>
             </tr>
           </thead>
           <tbody>
@@ -96,22 +107,33 @@ const Home = () => {
           </tbody>
         </table>
         <small>
-          Chú ý: Vì ds2 là biến thường, UI sẽ không cập nhật khi thay đổi giá
-          trị.
+          Chú ý: Vì ds2 là biến thường, UI sẽ không cập nhật khi thay đổi giá trị.
         </small>
       </div>
 
-      {/* Hiển thị bảng ds3 */}
-      <div style={{ marginTop: "20px" }} className="table2">
+      {/* Hiển thị bảng ds3 (state) */}
+      <div className="table2">
         <p>DANH SÁCH SINH VIÊN ds3 (state)</p>
+
+        {/* Ô nhập tên mới */}
+        <div style={{ marginBottom: "10px" }}>
+          <label>Nhập tên mới: </label>
+          <input
+            type="text"
+            value={tenMoi}
+            onChange={(e) => setTenMoi(e.target.value)}
+            placeholder="Nhập tên muốn đổi..."
+          />
+        </div>
+
         <table className="my-table">
           <thead>
             <tr>
-              <td>ID</td>
-              <td>Họ tên</td>
-              <td>Lớp</td>
-              <td>Giới tính</td>
-              <td>Sửa DL</td>
+              <th>ID</th>
+              <th>Họ tên</th>
+              <th>Lớp</th>
+              <th>Giới tính</th>
+              <th>Sửa DL</th>
             </tr>
           </thead>
           <tbody>
@@ -141,7 +163,7 @@ const Home = () => {
                   <input
                     type="button"
                     value="Sửa"
-                    onClick={() => TestSuaDLds3(sv.id)}
+                    onClick={() => TestSuaDLds3_aaa(sv.id)}
                   />
                 </td>
               </tr>
