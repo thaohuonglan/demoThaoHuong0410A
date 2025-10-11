@@ -2,7 +2,7 @@ const Trang2 = () => {
   const dssv = [
     {
       id: 1,
-      hoten: "Nguyễn Văn An2222",
+      hoten: "Nguyễn Văn An",
       lop: "K19",
       email: "abc@1234.edu.vn",
       anh: "https://htmediagroup.vn/wp-content/uploads/2022/11/Anh-58-copy-min.jpg.webp",

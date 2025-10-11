@@ -8,7 +8,7 @@ const Home = () => {
 
   // Biến thường ds2
   var ds2 = [
-    { id: "001", hoten: "Nguyễn Thị An111", lop: "K18", gioitinh: false },
+    { id: "001", hoten: "Nguyễn Thị An", lop: "K18", gioitinh: false },
     { id: "002", hoten: "Trần Văn Ba", lop: "K18", gioitinh: true },
     { id: "003", hoten: "Nguyễn Văn Cường", lop: "K18", gioitinh: true },
     { id: "007", hoten: "Nguyễn Văn Bảy", lop: "phicong", gioitinh: true },
