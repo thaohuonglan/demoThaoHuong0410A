@@ -4,7 +4,7 @@ const Home = () => {
   const str = "THỨ BẢY NGÀY 11/10/2025";
 
   // Biến thường
-  const dssv = ["Nguyễn Văn An111", "Trần Văn Ba", "Nguyễn Văn Cường"];
+  const dssv = ["Nguyễn Văn An", "Trần Văn Ba", "Nguyễn Văn Cường"];
 
   // Biến thường ds2
   const ds2 = [
@@ -107,7 +107,8 @@ const Home = () => {
           </tbody>
         </table>
         <small>
-          Chú ý: Vì ds2 là biến thường, UI sẽ không cập nhật khi thay đổi giá trị.
+          Chú ý: Vì ds2 là biến thường, UI sẽ không cập nhật khi thay đổi giá
+          trị.
         </small>
       </div>
 
