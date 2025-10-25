@@ -1,179 +1,43 @@
 import React, { useState } from "react";
+import "./css/style.css";
+import "./css/media.css";
+
+// Import ảnh từ thư mục assets/images
+import img1 from "./assets/images/double4.jpg";
+import img2 from "./assets/images/double5.jpg";
+import img3 from "./assets/images/double2.jpg";
+import img4 from "./assets/images/double3.jpg";
 
 const Home = () => {
-  const str = "THỨ BẢY NGÀY 11/10/2025";
-
-  // Biến thường
-  const dssv = ["Nguyễn Văn An", "Trần Văn Ba", "Nguyễn Văn Cường"];
-
-  // Biến thường ds2
-  const ds2 = [
-    { id: "001", hoten: "Nguyễn Thị An111", lop: "K18", gioitinh: false },
-    { id: "002", hoten: "Trần Văn Ba", lop: "K18", gioitinh: true },
-    { id: "003", hoten: "Nguyễn Văn Cường", lop: "K18", gioitinh: true },
-    { id: "007", hoten: "Nguyễn Văn Bảy", lop: "phicong", gioitinh: true },
-  ];
-
-  // State ds3
-  const [ds3, setDs3] = useState([
-    { id: "101", hoten: "Lê Thị Hoa", lop: "K19", gioitinh: false },
-    { id: "102", hoten: "Phạm Văn Nam", lop: "K19", gioitinh: true },
-    { id: "103", hoten: "Nguyễn Văn Bình", lop: "K19", gioitinh: false },
-  ]);
-
-  // State cho ô nhập tên mới
-  const [tenMoi, setTenMoi] = useState("");
-
-  // Hàm cập nhật ds3 khi gõ trong ô input bảng ds3
-  const handleChangeDs3 = (id, field, value) => {
-    setDs3((prevDs3) =>
-      prevDs3.map((item) =>
-        item.id === id ? { ...item, [field]: value } : item
-      )
-    );
-  };
-
-  // Hàm sửa họ tên ds3 bằng giá trị từ ô nhập tênMoi
-  const TestSuaDLds3_aaa = (id) => {
-    if (!tenMoi.trim()) {
-      alert("Vui lòng nhập tên mới trước khi sửa!");
-      return;
-    }
-    const newds3 = ds3.map((phantu) => {
-      if (phantu.id === id) phantu.hoten = tenMoi;
-      return phantu;
-    });
-    setDs3(newds3);
-    setTenMoi("");
-  };
-
-  // Nút sửa ds2 (biến thường)
-  const TestSuaDLds2 = (id) => {
-    ds2.map((item) => {
-      if (item.id === id) {
-        item.hoten = "Ronaldo";
-        console.log("ds2 item.hoten = " + item.hoten);
-      }
-      return item;
-    });
-    alert("ds2 đã thay đổi nhưng UI không cập nhật tự động!");
-  };
-
   return (
     <div className="home-container">
-      <h3>{str}</h3>
-
-      {/* Hiển thị danh sách từ biến thường dssv */}
-      <div className="table1">
-        <p>DANH SÁCH SINH VIÊN (biến thường dssv)</p>
-        {dssv.map((sv, index) => (
-          <p key={index}>{sv}</p>
-        ))}
-      </div>
-
-      {/* Hiển thị bảng ds2 (biến thường) */}
-      <div className="table2">
-        <p>DANH SÁCH SINH VIÊN ds2 (biến thường)</p>
-        <table className="my-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Họ tên</th>
-              <th>Lớp</th>
-              <th>Giới tính</th>
-              <th>Sửa DL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ds2.map((sv) => (
-              <tr key={sv.id}>
-                <td>{sv.id}</td>
-                <td>
-                  <input type="text" value={sv.hoten} readOnly />
-                </td>
-                <td>{sv.lop}</td>
-                <td>
-                  <input type="checkbox" checked={sv.gioitinh} readOnly />
-                </td>
-                <td>
-                  <input
-                    type="button"
-                    value="Sửa"
-                    onClick={() => TestSuaDLds2(sv.id)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <small>
-          Chú ý: Vì ds2 là biến thường, UI sẽ không cập nhật khi thay đổi giá
-          trị.
-        </small>
-      </div>
-
-      {/* Hiển thị bảng ds3 (state) */}
-      <div className="table2">
-        <p>DANH SÁCH SINH VIÊN ds3 (state)</p>
-
-        {/* Ô nhập tên mới */}
-        <div style={{ marginBottom: "10px" }}>
-          <label>Nhập tên mới: </label>
-          <input
-            type="text"
-            value={tenMoi}
-            onChange={(e) => setTenMoi(e.target.value)}
-            placeholder="Nhập tên muốn đổi..."
-          />
+      <div className="Over-Main">
+        <div className="Main-left_slogan">
+          <h1 className="animate__animated animate__bounceInLeft">
+            Chiếc túi xách không chỉ là phụ kiện, <br />
+            mà là phong cách và sự tự tin của người phụ nữ.
+          </h1>
+          <button className="animate__animated animate__bounceInLeft">
+            <a href="#">Tìm hiểu thêm</a>
+          </button>
         </div>
 
-        <table className="my-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Họ tên</th>
-              <th>Lớp</th>
-              <th>Giới tính</th>
-              <th>Sửa DL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ds3.map((sv) => (
-              <tr key={sv.id}>
-                <td>{sv.id}</td>
-                <td>
-                  <input
-                    type="text"
-                    value={sv.hoten}
-                    onChange={(e) =>
-                      handleChangeDs3(sv.id, "hoten", e.target.value)
-                    }
-                  />
-                </td>
-                <td>{sv.lop}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={sv.gioitinh}
-                    onChange={(e) =>
-                      handleChangeDs3(sv.id, "gioitinh", e.target.checked)
-                    }
-                  />
-                </td>
-                <td>
-                  <input
-                    type="button"
-                    value="Sửa"
-                    onClick={() => TestSuaDLds3_aaa(sv.id)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <small>
-          Chú ý: ds3 là state, mọi thay đổi sẽ tự động render lại UI.
-        </small>
+        <div className="Main-right_imgae">
+          <div className="column">
+            <div className="column-1 animate__animated animate__bounceInRight">
+              <img src={img1} alt="bag1" />
+            </div>
+            <div className="column-1 animate__animated animate__bounceInRight">
+              <img src={img2} alt="bag2" />
+            </div>
+            <div className="column-1 animate__animated animate__bounceInRight">
+              <img src={img3} alt="bag3" />
+            </div>
+            <div className="column-1 animate__animated animate__bounceInRight">
+              <img src={img4} alt="bag4" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

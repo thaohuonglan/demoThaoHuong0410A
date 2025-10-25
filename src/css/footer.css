@@ -1,0 +1,115 @@
+/* ===== RESET MẶC ĐỊNH ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== CẤU TRÚC CHUNG CỦA FOOTER ===== */
+footer {
+  background-color: #333; /* Giữ nguyên tông xám đậm */
+  color: #fff;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 40px 0 0 0; /* chỉ padding trên, tránh dư khoảng dưới */
+  margin-top: auto; /* giúp footer dính đáy khi nội dung ít */
+}
+
+/* ===== NỘI DUNG TRONG FOOTER ===== */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 20px;
+}
+
+.footer-section h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #fc5c7d; /* màu hồng nhấn nhẹ */
+}
+
+/* ===== MẠNG XÃ HỘI ===== */
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-links li {
+  display: inline-block;
+}
+
+.social-links li a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #fc5c7d;
+}
+
+/* ===== DÒNG BẢN QUYỀN DƯỚI CÙNG ===== */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0; /* giảm padding để không dư */
+  font-size: 14px;
+  background-color: #222; /* giữ nguyên nền xám đậm hơn */
+  margin-top: 0; /* loại bỏ khoảng dư trên */
+}
+
+/* ===== ĐẢM BẢO FOOTER DÍNH ĐÁY ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,63 @@
+.media-container {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  /* Cho iPhone với độ rộng màn hình 768px trở xuống */
+  .container {
+    width: 100%;
+  }
+  .container_list {
+    display: none; /* Bạn có thể ẩn hoặc xếp các mục theo chiều dọc */
+  }
+  .media-container {
+    display: block;
+    margin-right: 3rem;
+  }
+  .drop-menu {
+    position: absolute;
+    top: 100%;
+    left: -145px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    min-width: 200px;
+    z-index: 100; /* Đảm bảo menu dropdown sẽ nằm trên các phần tử khác */
+  }
+
+  .container_list li {
+    padding: 10px 0;
+  }
+
+  /* Điều chỉnh kích thước nút và văn bản trên di động */
+  .Main-left_slogan h1 {
+    font-size: 1rem; /* Văn bản nhỏ hơn để dễ đọc */
+  }
+  .Main-right_imgae .column {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  button {
+    font-size: 0.9rem; /* Giảm kích thước nút */
+    padding: 8px 16px;
+  }
+
+  /* Tự động điều chỉnh kích thước hình ảnh cho di động */
+  .Main-right_imgae img {
+    width: 100%; /* Đảm bảo hình ảnh thay đổi kích thước đúng cách */
+    height: auto;
+  }
+
+  .column {
+    display: block; /* Xếp cột theo chiều dọc */
+  }
+
+  footer {
+    font-size: 0.9rem; /* Văn bản trong footer nhỏ hơn trên di động */
+  }
+  .Main-Layout .Main-Layout_column {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100px;
+  }
+}

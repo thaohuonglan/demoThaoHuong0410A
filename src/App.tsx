@@ -3,12 +3,17 @@ import "./styles.css";
 import Home from "./Home";
 // @ts-ignore
 import Layout from "./Layout";
+
 // @ts-ignore
-import Trang1 from "./Trang1";
+import Layout2 from "./Layout2";
+
 // @ts-ignore
 import Chitietsanpham from "./Chitietsanpham";
 // @ts-ignore
-import Trang2 from "./Trang2";
+import Lienhe from "./Lienhe";
+// @ts-ignore
+import Gioithieu from "./Gioithieu";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -17,11 +22,11 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout2 />}>
           <Route index element={<Home />} />
-          <Route path="trang1" element={<Trang1 />} />
+          <Route path="gioithieu" element={<Gioithieu />} />
+          <Route path="lienhe" element={<Lienhe />} />
           <Route path="sanpham/:id" element={<Chitietsanpham />} />
-          <Route path="trang2" element={<Trang2 />} />
         </Route>
       </Routes>
     </BrowserRouter>
