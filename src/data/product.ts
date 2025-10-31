@@ -1,4 +1,30 @@
-// src/product.ts
+// src/data/product.ts
+
+import dior1 from "../assets/images/di1.jpg";
+import dior2 from "../assets/images/di2.jpg";
+import dior3 from "../assets/images/di3.jpg";
+import dior4 from "../assets/images/di8.png";
+
+import chanel1 from "../assets/images/ch2.jpg";
+import chanel2 from "../assets/images/ch4.jpg";
+import chanel3 from "../assets/images/ch7.webp";
+import chanel4 from "../assets/images/ch8.png";
+
+import ysl1 from "../assets/images/ysl3.webp";
+import ysl2 from "../assets/images/ysl4.webp";
+import ysl3 from "../assets/images/ysl5.png";
+import ysl4 from "../assets/images/ysl6.webp";
+
+import ceekay1 from "../assets/images/cee2.jpg";
+import ceekay2 from "../assets/images/cee3.jpg";
+import ceekay3 from "../assets/images/cee5.avif";
+import ceekay4 from "../assets/images/cee6.avif";
+
+import zara1 from "../assets/images/zara1.jpg";
+import zara2 from "../assets/images/zara2.jpg";
+import zara3 from "../assets/images/zara3.jpg";
+import zara4 from "../assets/images/zara4.png";
+
 export interface Product {
   id: number;
   title: string;
@@ -6,119 +32,211 @@ export interface Product {
   description: string;
   category: string;
   image: string;
+  rating?: {
+    rate: number;
+    count: number;
+  };
 }
 
 export const products: Product[] = [
   {
     id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
+    title: "Dior Lady Bag",
+    price: 52000000,
     description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+      "Chiếc túi Lady Dior được chế tác thủ công tinh xảo, mang phong cách quý phái và biểu tượng vĩnh cửu của phái đẹp.",
+    category: "Dior",
+    image: dior1,
+    rating: { rate: 4.8, count: 150 },
   },
   {
     id: 2,
-    title: "Mens Casual Premium Slim Fit T-Shirts ",
-    price: 22.3,
+    title: "Dior Saddle Bag",
+    price: 45000000,
     description:
-      "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-    category: "men's clothing",
-    image:
-      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
+      "Túi Saddle Dior mang thiết kế độc đáo dạng yên ngựa, tạo điểm nhấn cá tính và thời thượng.",
+    category: "Dior",
+    image: dior2,
+    rating: { rate: 4.5, count: 200 },
   },
   {
     id: 3,
-    title: "Mens Cotton Jacket",
-    price: 55.99,
+    title: "Dior Book Tote",
+    price: 48000000,
     description:
-      "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
+      "Sản phẩm biểu tượng của nhà mốt Dior với kiểu dáng rộng rãi và họa tiết thêu tinh xảo.",
+    category: "Dior",
+    image: dior3,
+    rating: { rate: 4.9, count: 98 },
   },
   {
     id: 4,
-    title: "Mens Casual Slim Fit",
-    price: 15.99,
+    title: "Dior Caro Bag",
+    price: 50000000,
     description:
-      "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png",
+      "Phong cách nhẹ nhàng nhưng vẫn sang trọng nhờ thiết kế đệm caro đặc trưng.",
+    category: "Dior",
+    image: dior4,
+    rating: { rate: 4.6, count: 110 },
   },
   {
     id: 5,
-    title:
-      "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
-    price: 695,
+    title: "Chanel Classic Flap Bag",
+    price: 72000000,
     description:
-      "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png",
+      "Chiếc túi Chanel biểu tượng với khóa CC đặc trưng, mang đậm phong cách thanh lịch.",
+    category: "Chanel",
+    image: chanel1,
+    rating: { rate: 4.9, count: 250 },
   },
   {
     id: 6,
-    title: "Solid Gold Petite Micropave ",
-    price: 168,
+    title: "Chanel Boy Bag",
+    price: 68000000,
     description:
-      "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png",
+      "Túi Boy Chanel đầy cá tính dành cho những cô nàng mạnh mẽ và thời thượng.",
+    category: "Chanel",
+    image: chanel2,
+    rating: { rate: 4.7, count: 190 },
   },
   {
     id: 7,
-    title: "White Gold Plated Princess",
-    price: 9.99,
+    title: "Chanel 19 Bag",
+    price: 65000000,
     description:
-      "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
+      "Thiết kế trẻ trung kết hợp với dây xích bản lớn tạo điểm nhấn hiện đại.",
+    category: "Chanel",
+    image: chanel3,
+    rating: { rate: 4.8, count: 210 },
   },
   {
     id: 8,
-    title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
-    price: 10.99,
+    title: "Chanel Gabrielle Bag",
+    price: 64000000,
     description:
-      "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png",
+      "Mềm mại và linh hoạt, chiếc túi Gabrielle phù hợp cho mọi phong cách thường ngày.",
+    category: "Chanel",
+    image: chanel4,
+    rating: { rate: 4.6, count: 140 },
   },
   {
     id: 9,
-    title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
-    price: 64,
+    title: "YSL LouLou Medium",
+    price: 39500000,
     description:
-      "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_t.png",
+      "Thiết kế chữ V kinh điển cùng chất liệu da mềm mịn, sang trọng và cổ điển.",
+    category: "YSL",
+    image: ysl1,
+    rating: { rate: 4.7, count: 175 },
   },
   {
     id: 10,
-    title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
-    price: 109,
+    title: "YSL Sunset Bag",
+    price: 36000000,
     description:
-      "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png",
+      "Chiếc túi nhỏ gọn hoàn hảo cho các buổi tiệc sang chảnh.",
+    category: "YSL",
+    image: ysl2,
+    rating: { rate: 4.5, count: 130 },
   },
   {
     id: 11,
-    title:
-      "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
-    price: 109,
+    title: "YSL Kate Tassel",
+    price: 34500000,
     description:
-      "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_t.png",
+      "Dòng túi nổi bật với dây tua rua kiêu sa, giúp bạn tỏa sáng trong mọi sự kiện.",
+    category: "YSL",
+    image: ysl3,
+    rating: { rate: 4.6, count: 160 },
   },
   {
     id: 12,
-    title:
-      "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-    price: 114,
+    title: "YSL Solferino",
+    price: 38500000,
     description:
-      "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png",
+      "Kiểu dáng hiện đại, đường nét sắc sảo làm nổi bật phong cách cá nhân.",
+    category: "YSL",
+    image: ysl4,
+    rating: { rate: 4.7, count: 145 },
+  },
+  {
+    id: 13,
+    title: "Ceekay Elegant Bag",
+    price: 1450000,
+    description:
+      "Túi thời trang phù hợp đi học, đi chơi, dễ phối đồ và bền đẹp theo thời gian.",
+    category: "Ceekay",
+    image: ceekay1,
+    rating: { rate: 4.1, count: 70 },
+  },
+  {
+    id: 14,
+    title: "Ceekay Sweet Girl",
+    price: 1200000,
+    description:
+      "Phong cách dễ thương, phù hợp các bạn nữ yêu thích sự nhẹ nhàng.",
+    category: "Ceekay",
+    image: ceekay2,
+    rating: { rate: 4.0, count: 90 },
+  },
+  {
+    id: 15,
+    title: "Ceekay Mini Bag",
+    price: 890000,
+    description:
+      "Nhỏ gọn, tiện lợi và hợp xu hướng dành cho giới trẻ.",
+    category: "Ceekay",
+    image: ceekay3,
+    rating: { rate: 4.2, count: 60 },
+  },
+  {
+    id: 16,
+    title: "Ceekay Fashion Bag",
+    price: 1350000,
+    description:
+      "Thiết kế năng động phù hợp cho những chuyến đi ngắn cùng bạn bè.",
+    category: "Ceekay",
+    image: ceekay4,
+    rating: { rate: 4.3, count: 85 },
+  },
+  {
+    id: 17,
+    title: "Zara Leather Shoulder Bag",
+    price: 1850000,
+    description:
+      "Chất liệu da sang trọng với mức giá dễ tiếp cận dành cho mọi khách hàng.",
+    category: "Zara",
+    image: zara1,
+    rating: { rate: 4.5, count: 120 },
+  },
+  {
+    id: 18,
+    title: "Zara Minimal Tote",
+    price: 1650000,
+    description:
+      "Kiểu dáng tối giản nhưng vẫn nổi bật sự thanh lịch.",
+    category: "Zara",
+    image: zara2,
+    rating: { rate: 4.4, count: 90 },
+  },
+  {
+    id: 19,
+    title: "Zara Quilted Mini Bag",
+    price: 1590000,
+    description:
+      "Phù hợp cho phong cách trẻ trung, thời trang và năng động.",
+    category: "Zara",
+    image: zara3,
+    rating: { rate: 4.3, count: 80 },
+  },
+  {
+    id: 20,
+    title: "Zara Simple Crossbody",
+    price: 1490000,
+    description:
+      "Thiết kế nhỏ gọn giúp dễ dàng di chuyển mỗi ngày.",
+    category: "Zara",
+    image: zara4,
+    rating: { rate: 4.2, count: 95 },
   },
 ];
