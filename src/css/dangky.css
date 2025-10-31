@@ -1,0 +1,13 @@
+@import "./dangnhap.css";
+
+.popup-content {
+  border-top: 5px solid #f8bfd0;
+}
+
+button {
+  background-color: #f5b8c6;
+}
+
+button:hover {
+  background-color: #f9cbd8;
+}

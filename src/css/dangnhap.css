@@ -1,0 +1,113 @@
+/* Nền mờ popup */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Khung nội dung popup */
+  .popup-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 45px 35px 35px;
+    width: 380px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    animation: zoomIn 0.25s ease-in-out;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Nút đóng “×” — GÓC PHẢI TRÊN */
+  .close-btn {
+    position: absolute !important;
+    top: 10px !important;
+    right: -150px !important;
+    background: transparent !important; /* bỏ nền trắng hoặc hồng */
+    border: none !important;            /* bỏ viền */
+    color: #e88faf !important;          /* chỉ giữ màu hồng cho dấu × */
+    font-size: 28px !important;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+    display: block !important;          /* bỏ flex */
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .close-btn:hover {
+    background: #e88faf;
+    color: #fff;
+  }
+  
+  /* Tiêu đề */
+  .popup-content h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Input */
+  .popup-content input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .popup-content input:focus {
+    border-color: #e88faf;
+  }
+  
+  /* Nút đăng ký */
+  .popup-content button {
+    background-color: #e88faf;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-content button:hover {
+    background-color: #e67398;
+  }
+  .popup-content p {
+    margin-top: 20px;  /* 👈 khoảng cách giữa nút và dòng chữ */
+    color: #555;
+    font-size: 14px;
+  }
+  .popup-content p span {
+    color: #e88faf;       /* màu hồng cho chữ “Đăng ký ngay” */
+    cursor: pointer;      /* đổi con trỏ khi hover */
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .popup-content p span:hover {
+    color: #d67393;       /* hồng đậm hơn khi hover */
+  }
+  
+  /* Hiệu ứng */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  

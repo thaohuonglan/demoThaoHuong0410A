@@ -1,8 +1,8 @@
 import "./css/Contact.css";
 const Lienhe = () => {
   return (
-    <div class="contact-container">
-      <div class="contact-form">
+    <div className="contact-container">
+      <div className="contact-form">
         <h3>Gửi thắc mắc cho chúng tôi</h3>
         <form>
           <input type="text" placeholder="Tên của bạn" />
