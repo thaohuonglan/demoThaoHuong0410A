@@ -1,11 +1,9 @@
 import "./styles.css";
 // @ts-ignore
 import Home from "./Home";
-// @ts-ignore
-import Layout from "./Layout";
 
 // @ts-ignore
-import Layout2 from "./Layout2";
+import Layout from "./Layout";
 
 // @ts-ignore
 import Chitietsanpham from "./Chitietsanpham";
@@ -22,7 +20,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout2 />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="gioithieu" element={<Gioithieu />} />
           <Route path="lienhe" element={<Lienhe />} />

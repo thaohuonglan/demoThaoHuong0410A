@@ -1,155 +1,149 @@
-import "./assets/css/main.css";
-import anhlogo from "./assets/images/Ten-truong-do-1000x159.png";
-import { Outlet } from "react-router-dom";
+import "./css/style.css";
+import "./css/media.css";
 
-const Layout = () => {
+import anhlogo from "./assets/images/logoshop.png";
+import { Outlet } from "react-router-dom";
+const Layout2 = () => {
   return (
-    <div className="layout">
-      {/* Header */}
-      <header>
-        <div id="divheader" className="header1">
-          {/* Thanh trên */}
-          <div id="banner" className="banner1">
-            <div id="topleft" className="topleft">
-              <ul className="ul1">
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body>
+        <div class="container">
+          <div class="container_interface">
+            <div class="container_img">
+              <img src={anhlogo} alt="" />
+            </div>
+
+            <div class="container_list">
+              <li class="animate__animated animate__bounceInDown">
+                <a href="/">Trang Chủ</a>
+              </li>
+              <li class="drop animate__animated animate__bounceInDown">
+                <a href="#">Sản phẩm</a>
+                <ul class="drop-menu">
+                  <li>
+                    <a href="DIOR.html">DIOR</a>
+                  </li>
+                  <li>
+                    <a href="CHANEL.HTML">CHANEL</a>
+                  </li>
+                  <li>
+                    <a href="YSL.html">YSL</a>
+                  </li>
+                  <li>
+                    <a href="CEEKAY.html">CEEKAY</a>
+                  </li>
+                  <li>
+                    <a href="ZARA.html">ZARA</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="animate__animated animate__bounceInDown">
+                <a href="/gioithieu">Về bên chúng tôi</a>
+              </li>
+              <li class="animate__animated animate__bounceInDown">
+                <a href="/lienhe">Liên hệ</a>
+              </li>
+            </div>
+
+            <div class="header-icons">
+              <a href="Login.html" class="icon-login">
+                <i class="fa-solid fa-user"></i>
+              </a>
+              <a href="cart.html" class="icon-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <main>
+          <Outlet />
+        </main>
+
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section about">
+              <h2>Về chúng tôi</h2>
+              <p>
+                Công ty chúng tôi luôn những sản phẩm mang phong cách thời
+                thượng,thanh lịch.
+              </p>
+            </div>
+
+            <div class="footer-section links">
+              <h2>Liên kết nhanh</h2>
+              <ul>
                 <li>
-                  <a href="/#">TRANG CHỦ</a>
+                  <a href="index.html">Trang chủ</a>
                 </li>
                 <li>
-                  <a href="/trang1">EGOV</a>
+                  <a href="#">Sản phẩm</a>
                 </li>
                 <li>
-                  <a href="/trang2">SINH VIÊN</a>
+                  <a href="#">Về chúng tôi</a>
+                </li>
+                <li>
+                  <a href="Contact.html">Liên hệ</a>
                 </li>
               </ul>
             </div>
 
-            {/* Logo */}
-            <div id="logo" className="logo1">
-              <img src={anhlogo} alt="Logo" />
+            <div class="footer-section contact">
+              <h2>Kết nối với chúng tôi</h2>
+              <ul>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i> 30 Đường T4A, Tây Thạnh,
+                  Tân Phú, Hồ Chí Minh, Việt Nam
+                </li>
+                <li>
+                  <i class="fas fa-phone-alt"></i> +84 764 308 318
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i>
+                  thaohuongnguyenphuoc@gmail.com.vn
+                </li>
+              </ul>
             </div>
 
-            {/* Tìm kiếm */}
-            <div id="divtimkiem" className="search-bar">
-              <input type="text" placeholder="Tìm kiếm..." />
-              <button type="button">🔍</button>
+            <div class="footer-section social">
+              <h2>Theo dõi chúng tôi</h2>
+              <ul class="social-links">
+                <li>
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Menu */}
-          <nav id="divmenu" className="menu">
-            <div id="menuitem">
-              <ul>
-                <li className="menu-item">
-                  <a href="#">GIỚI THIỆU</a>
-                  <ul className="submenu">
-                    <li>
-                      <a href="#">Lịch sử hình thành và phát triển</a>
-                    </li>
-                    <li>
-                      <a href="#">Bộ máy tổ chức</a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li>
-                  <a href="#">TIN TỨC - SỰ KIỆN</a>
-                </li>
-
-                <li className="menu-item">
-                  <a href="#">TUYỂN SINH</a>
-                  <ul className="submenu">
-                    <li>
-                      <a href="#">Tuyển sinh 2025</a>
-                    </li>
-                    <li>
-                      <a href="#">Tuyển sinh chính quy</a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="menu-item">
-                  <a href="#">CÔNG KHAI GIÁO DỤC</a>
-                  <ul className="submenu">
-                    <li>
-                      <a href="#">Công khai thường niên</a>
-                    </li>
-                    <li>
-                      <a href="#">Chất lượng đào tạo</a>
-                    </li>
-                    <li>
-                      <a href="#">Chuẩn đầu ra</a>
-                    </li>
-                    <li>
-                      <a href="#">Đội ngũ giảng viên</a>
-                    </li>
-                    <li>
-                      <a href="#">Tài chính</a>
-                    </li>
-                    <li>
-                      <a href="#">Cơ sở vật chất</a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="menu-item">
-                  <a href="#">CƠ CẤU TỔ CHỨC</a>
-                  <ul className="submenu">
-                    <li>
-                      <a href="#">Đảng-Đoàn thể</a>
-                    </li>
-                    <li>
-                      <a href="#">Ban giám hiệu</a>
-                    </li>
-                    <li>
-                      <a href="#">Phòng ban</a>
-                    </li>
-                    <li>
-                      <a href="#">Khoa chuyên môn</a>
-                    </li>
-                    <li>
-                      <a href="#">Trung tâm</a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="menu-item">
-                  <a href="#">LIÊN KẾT</a>
-                  <ul className="submenu">
-                    <li>
-                      <a href="#">Thông tin từ sở GDĐT TP</a>
-                    </li>
-                    <li>
-                      <a href="#">Cổng đăng kí tuyển sinh</a>
-                    </li>
-                    <li>
-                      <a href="#">Sổ tay sinh viên</a>
-                    </li>
-                    <li>
-                      <a href="#">EGOV-Cổng giảng viên</a>
-                    </li>
-                    <li>
-                      <a href="#">Thư viện số</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </header>
-
-      {/* Nội dung */}
-      <main id="container" className="container">
-        <Outlet />
-      </main>
-
-      {/* Footer */}
-      <footer>
-        <p>© 2025 Trường Cao Đẳng Kinh Tế TP.HCM</p>
-      </footer>
-    </div>
+          <div class="footer-bottom">
+            &copy; 2025 ThaoHuongCompany | Designed by ThaoHuong
+          </div>
+        </footer>
+      </body>
+    </html>
   );
 };
 
-export default Layout;
+export default Layout2;
