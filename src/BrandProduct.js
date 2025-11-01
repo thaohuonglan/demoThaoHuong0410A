@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useOutletContext, Link } from "react-router-dom";
-import { products } from "./data/product";
+import { supabase } from "./supabaseClient";
 import "./css/product.css";
 
 const BrandProduct = () => {
   const { brand } = useParams();
   const { addToCart } = useOutletContext();
+  const [brandProducts, setBrandProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!brand) return;
+
+    const fetchBrandProducts = async () => {
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from("sanpham")
+          .select("*")
+          .ilike("category", brand);
+
+        if (error) throw error;
+        setBrandProducts(data);
+      } catch (err) {
+        console.error("Lỗi khi lấy sản phẩm:", err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBrandProducts();
+  }, [brand]);
 
   if (!brand) return <p>Không có hãng được chọn</p>;
-
-  const brandProducts = products.filter(
-    (p) => p.category.toLowerCase() === brand.toLowerCase()
-  );
+  if (loading) return <p>Đang tải sản phẩm...</p>;
+  if (brandProducts.length === 0)
+    return <p>Không có sản phẩm cho hãng {brand}</p>;
 
   return (
     <div className="brand-product-container">
@@ -19,8 +43,10 @@ const BrandProduct = () => {
       <div className="product-grid">
         {brandProducts.map((product) => (
           <div key={product.id} className="product-card">
-            {/* Link tới trang chi tiết */}
-            <Link to={`/chitiet/${product.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <Link
+              to={`/chitiet/${product.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <img
                 className="product-main-image"
                 src={product.image}
