@@ -70,7 +70,7 @@ main {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #f0f0f0;
+  background-color: #f1f1f1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   min-width: 200px;
@@ -85,7 +85,7 @@ main {
   color: #333;
 }
 .drop-menu li a:hover {
-  background-color: #f5f5f5;
+  background-color: #fff;
 } /* ===== TRANG CHỦ ===== */
 .Main {
   max-width: 1200px;

@@ -59,7 +59,7 @@ const Home = () => {
             mà là phong cách và sự tự tin của người phụ nữ.
           </h1>
           <button className="animate__animated animate__bounceInLeft">
-            <a href="#">Tìm hiểu thêm</a>
+            <a href="/gioithieu">Tìm hiểu thêm</a>
           </button>
         </div>
 

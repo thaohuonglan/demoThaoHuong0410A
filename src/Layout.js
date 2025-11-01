@@ -117,7 +117,7 @@ const Layout = () => {
             <h2>Liên kết nhanh</h2>
             <ul>
               <li>
-                <Link to="/">Trang chủ</Link>
+                <Link to="/home">Trang chủ</Link>
               </li>
               <li>
                 <span>Sản phẩm</span>
