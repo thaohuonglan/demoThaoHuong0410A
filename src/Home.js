@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 import "./css/style.css";
 import "./css/home.css";
 import "./css/media.css";
@@ -22,27 +23,30 @@ import sale3 from "./assets/images/sale3.webp";
 import sale4 from "./assets/images/sale4.webp";
 
 const Home = () => {
-  const [showBestSeller, setShowBestSeller] = useState(false);
-  const [showSales, setShowSales] = useState(false);
+  const { addToCart } = useOutletContext(); // Lấy addToCart từ Layout
 
-  // Dữ liệu sản phẩm Best Seller
   const bestSellers = [
-    { id: 1, name: "Túi xách Best 1", img: best1 },
-    { id: 2, name: "Túi xách Best 2", img: best2 },
-    { id: 3, name: "Túi xách Best 3", img: best3 },
-    { id: 4, name: "Túi xách Best 4", img: best4 },
+    { id: 1, name: "Túi xách Best 1", img: best1, price: 1200000 },
+    { id: 2, name: "Túi xách Best 2", img: best2, price: 1500000 },
+    { id: 3, name: "Túi xách Best 3", img: best3, price: 900000 },
+    { id: 4, name: "Túi xách Best 4", img: best4, price: 1100000 },
   ];
 
-  // Dữ liệu sản phẩm Sale
   const sales = [
-    { id: 1, name: "Túi xách Sale 1", img: sale1 },
-    { id: 2, name: "Túi xách Sale 2", img: sale2 },
-    { id: 3, name: "Túi xách Sale 3", img: sale3 },
-    { id: 4, name: "Túi xách Sale 4", img: sale4 },
+    { id: 1, name: "Túi xách Sale 1", img: sale1, price: 800000 },
+    { id: 2, name: "Túi xách Sale 2", img: sale2, price: 950000 },
+    { id: 3, name: "Túi xách Sale 3", img: sale3, price: 700000 },
+    { id: 4, name: "Túi xách Sale 4", img: sale4, price: 650000 },
   ];
 
   const handleAddToCart = (product) => {
+    addToCart(product); // Thêm sản phẩm thật vào giỏ
     alert(`${product.name} đã được thêm vào giỏ hàng!`);
+  };
+
+  const handleBuyNow = (product) => {
+    addToCart(product); // Thêm vào giỏ
+    window.location.href = "/cart"; // chuyển thẳng sang giỏ hàng
   };
 
   return (
@@ -73,57 +77,45 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Nút hiện Best Seller / Sale */}
-      <div
-        className="show-buttons"
-        style={{ textAlign: "center", margin: "30px 0" }}
-      >
-        <button onClick={() => setShowBestSeller(!showBestSeller)}>
-          {showBestSeller ? "Ẩn Best Seller" : "Hiện Best Seller"}
-        </button>
-        <button
-          onClick={() => setShowSales(!showSales)}
-          style={{ marginLeft: "10px" }}
-        >
-          {showSales ? "Ẩn Sale" : "Hiện Sale"}
-        </button>
+      {/* Best Seller */}
+      <div className="product-section">
+        <h2>Best Seller</h2>
+        <div className="product-grid">
+          {bestSellers.map((item) => (
+            <div key={item.id} className="product-card">
+              <img src={item.img} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>Giá: {item.price.toLocaleString("vi-VN")} VND</p>
+              <div className="product-buttons">
+                <button onClick={() => handleBuyNow(item)}>Mua ngay</button>
+                <button onClick={() => handleAddToCart(item)}>
+                  Thêm vào giỏ hàng
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Best Seller */}
-      {showBestSeller && (
-        <div className="product-section">
-          <h2>Best Seller</h2>
-          <div className="product-grid">
-            {bestSellers.map((item) => (
-              <div key={item.id} className="product-card">
-                <img src={item.img} alt={item.name} />
-                <h3>{item.name}</h3>
-                <button onClick={() => handleAddToCart(item)}>
-                  Thêm vào giỏ hàng
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Sale */}
-      {showSales && (
-        <div className="product-section">
-          <h2>Sale</h2>
-          <div className="product-grid">
-            {sales.map((item) => (
-              <div key={item.id} className="product-card">
-                <img src={item.img} alt={item.name} />
-                <h3>{item.name}</h3>
+      <div className="product-section">
+        <h2>Sale</h2>
+        <div className="product-grid">
+          {sales.map((item) => (
+            <div key={item.id} className="product-card">
+              <img src={item.img} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>Giá: {item.price.toLocaleString("vi-VN")} VND</p>
+              <div className="product-buttons">
+                <button onClick={() => handleBuyNow(item)}>Mua ngay</button>
                 <button onClick={() => handleAddToCart(item)}>
                   Thêm vào giỏ hàng
                 </button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

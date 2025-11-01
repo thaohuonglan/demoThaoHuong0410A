@@ -11,6 +11,10 @@ import Chitietsanpham from "./Chitietsanpham";
 import Lienhe from "./Lienhe";
 // @ts-ignore
 import Gioithieu from "./Gioithieu";
+// @ts-ignore
+import BrandProduct from "./BrandProduct";
+// @ts-ignore
+import Cart from "./Cart";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,7 +28,9 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="gioithieu" element={<Gioithieu />} />
           <Route path="lienhe" element={<Lienhe />} />
-          <Route path="sanpham/:id" element={<Chitietsanpham />} />
+          <Route path="sanpham/:brand" element={<BrandProduct />} />
+          <Route path="chitiet/:id" element={<Chitietsanpham />} />
+          <Route path="cart" element={<Cart />} /> {/* <-- route mới */}
         </Route>
       </Routes>
     </BrowserRouter>

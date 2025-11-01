@@ -1,0 +1,139 @@
+/* Container tổng */
+.brand-product-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffd6dc;
+
+  }
+  
+  /* Tiêu đề hãng */
+  .brand-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Grid sản phẩm */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  /* Card sản phẩm */
+  .product-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Ảnh sản phẩm */
+  .product-main-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .product-card:hover .product-main-image {
+    transform: scale(1.05);
+  }
+  
+  /* Tên sản phẩm */
+  .product-card h3 {
+    font-size: 18px;
+    margin: 15px 0 5px;
+    color: #333;
+  }
+  
+  /* Giá sản phẩm */
+  .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #E63946;
+    margin-bottom: 10px;
+  }
+  
+  /* Button thêm giỏ hàng */
+  .btn-add-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1D3557;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-add-cart:hover {
+    background-color: #457B9D;
+  }
+  
+  .btn-add-cart i {
+    font-size: 16px;
+  }
+  
+  /* Responsive nhỏ hơn 768px */
+  @media (max-width: 768px) {
+    .product-main-image {
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand-title {
+      font-size: 24px;
+    }
+  }
+  .product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .btn-add-cart,
+  .btn-buy-now {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .btn-add-cart {
+    background-color: #457b9d;
+    color: white;
+  }
+  
+  .btn-add-cart:hover {
+    background-color: #1d3557;
+  }
+  
+  .btn-buy-now {
+    background-color: #e63946;
+    color: white;
+  }
+  
+  .btn-buy-now:hover {
+    background-color: #d62828;
+  }
+  
