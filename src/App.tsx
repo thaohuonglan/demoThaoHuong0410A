@@ -11,11 +11,19 @@ import Gioithieu from "./Gioithieu";
 // @ts-ignore
 import BrandProduct from "./BrandProduct";
 // @ts-ignore
+import ProductDetail from "./ProductDetail";
+// @ts-ignore
 import Cart from "./Cart";
+// @ts-ignore
+import DangNhap from "./DangNhap";
+// @ts-ignore
+import LogoutPage from "./LogoutPage";
 // @ts-ignore
 import AdminLayout from "./AdminLayout";
 // @ts-ignore
 import AdminRoute from "./AdminRoute";
+// @ts-ignore
+import ProductManagement from "./ProductManagement";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -30,10 +38,14 @@ export default function App() {
           <Route path="lienhe" element={<Lienhe />} />
           <Route path="sanpham/:brand" element={<BrandProduct />} />
           <Route path="chitiet/:id" element={<Chitietsanpham />} />
+          <Route path="/productdetail/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
+          {/* Trang đăng nhập / đăng xuất */}
+          <Route path="login" element={<DangNhap />} />
+          <Route path="logout" element={<LogoutPage />} />
         </Route>
 
-        {/* Admin */}
+        {/* Layout admin */}
         <Route
           path="/admin/*"
           element={
@@ -41,7 +53,10 @@ export default function App() {
               <AdminLayout />
             </AdminRoute>
           }
-        />
+        >
+          {/* Route con của admin */}
+          <Route path="products" element={<ProductManagement />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
