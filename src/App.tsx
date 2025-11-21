@@ -24,6 +24,8 @@ import AdminLayout from "./AdminLayout";
 import AdminRoute from "./AdminRoute";
 // @ts-ignore
 import ProductManagement from "./ProductManagement";
+// @ts-ignore
+import UserManagement from "./UserManagement";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -56,6 +58,7 @@ export default function App() {
         >
           {/* Route con của admin */}
           <Route path="products" element={<ProductManagement />} />
+          <Route path="users" element={<UserManagement />} />
         </Route>
       </Routes>
     </BrowserRouter>

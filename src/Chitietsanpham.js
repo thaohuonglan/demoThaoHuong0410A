@@ -1,14 +1,38 @@
 // src/Chitietsanpham.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
-import { products } from "./data/product";
+import { supabase } from "./supabaseClient";
 
 export default function Chitietsanpham() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useOutletContext();
 
-  const product = products.find((p) => p.id === Number(id));
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // 🔥 Lấy sản phẩm theo ID từ Supabase
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data, error } = await supabase
+        .from("sanpham")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (error) {
+        console.error("Lỗi lấy sản phẩm:", error);
+      } else {
+        setProduct(data);
+      }
+
+      setLoading(false);
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  if (loading) return <p style={{ padding: 20 }}>Đang tải...</p>;
 
   if (!product) {
     return (
@@ -19,6 +43,7 @@ export default function Chitietsanpham() {
     );
   }
 
+  // Nút thêm giỏ
   const handleAddToCart = (product) => {
     addToCart(product);
     window.location.href = "/cart";
@@ -37,7 +62,7 @@ export default function Chitietsanpham() {
         margin: "0 auto",
       }}
     >
-      {/* Nút quay lại brand */}
+      {/* Quay lại brand */}
       <button
         onClick={() => navigate(`/sanpham/${product.category}`)}
         style={{
@@ -60,7 +85,7 @@ export default function Chitietsanpham() {
           flexWrap: "wrap",
         }}
       >
-        {/* Hình ảnh sản phẩm */}
+        {/* Ảnh */}
         <div style={{ flex: "1 1 300px" }}>
           <img
             src={product.image}
@@ -83,22 +108,25 @@ export default function Chitietsanpham() {
         {/* Thông tin sản phẩm */}
         <div style={{ flex: "1 1 400px" }}>
           <h2 style={{ marginBottom: "15px" }}>{product.title}</h2>
+
           <p style={{ fontSize: "18px", fontWeight: "500" }}>
             Giá: {Number(product.price).toLocaleString("vi-VN")}₫
           </p>
+
           <p>
             <strong>Loại:</strong> {product.category}
           </p>
+
           <p>{product.description}</p>
 
-          {product.rating && (
+          {product.rating_rate && (
             <p>
-              <strong>Đánh giá:</strong> {product.rating.rate}⭐ (
-              {product.rating.count} lượt)
+              <strong>Đánh giá:</strong> {product.rating_rate}⭐ (
+              {product.rating_count} lượt)
             </p>
           )}
 
-          {/* Nút hành động */}
+          {/* Nút */}
           <div
             style={{
               marginTop: "20px",
@@ -127,6 +155,7 @@ export default function Chitietsanpham() {
             >
               Mua ngay
             </button>
+
             <button
               onClick={() => handleAddToCart(product)}
               style={{
@@ -151,7 +180,7 @@ export default function Chitietsanpham() {
         </div>
       </div>
 
-      {/* Responsive nhỏ */}
+      {/* Responsive */}
       <style>
         {`
           @media (max-width: 768px) {
