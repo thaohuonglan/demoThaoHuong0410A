@@ -32,6 +32,11 @@ const BrandProduct = () => {
     fetchBrandProducts();
   }, [brand]);
 
+  const formatPrice = (price) => {
+    // Format số tiền, ví dụ 52000000 => 52,000,000
+    return price.toLocaleString("vi-VN") + "₫";
+  };
+
   if (!brand) return <p>Không có hãng được chọn</p>;
   if (loading) return <p>Đang tải sản phẩm...</p>;
   if (brandProducts.length === 0)
@@ -54,6 +59,9 @@ const BrandProduct = () => {
               />
               <h3>{product.title}</h3>
             </Link>
+
+            {/* Hiển thị giá tiền */}
+            <p className="product-price">{formatPrice(product.price)}</p>
 
             <div className="product-actions">
               <button
