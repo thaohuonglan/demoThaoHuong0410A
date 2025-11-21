@@ -12,7 +12,7 @@ import img3 from "./assets/images/double2.jpg";
 import img4 from "./assets/images/double3.jpg";
 
 const Home = () => {
-  const { addToCart } = useOutletContext(); 
+  const { addToCart } = useOutletContext();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,8 +37,7 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  const formatPrice = (price) =>
-    Number(price).toLocaleString("vi-VN") + "₫";
+  const formatPrice = (price) => Number(price).toLocaleString("vi-VN") + "₫";
 
   const bestSellers = products.filter((p) => p.type === "best");
   const sales = products.filter((p) => p.type === "sale");
@@ -76,12 +75,14 @@ const Home = () => {
       <div className="Over-Main">
         <div className="Main-left_slogan">
           <h1 className="animate__animated animate__bounceInLeft">
-            Chiếc túi xách không chỉ là phụ kiện, <br />
-            mà là phong cách và sự tự tin của người phụ nữ.
+            Chiếc túi xách không chỉ là phụ kiện bình thường, <br />
+            mà chính là phong cách và sự tự tin của người phụ nữ.
           </h1>
-          <button className="animate__animated animate__bounceInLeft">
-            <a href="/gioithieu">Tìm hiểu thêm</a>
-          </button>
+          <div style={{ textAlign: "center", marginTop: "15px" }}>
+            <button className="animate__animated animate__bounceInLeft">
+              <a href="/gioithieu">Tìm hiểu thêm</a>
+            </button>
+          </div>
         </div>
 
         <div className="Main-right_imgae">
@@ -91,7 +92,7 @@ const Home = () => {
                 key={index}
                 className="column-1 animate__animated animate__bounceInRight"
               >
-<img src={img} alt={`bag${index + 1}`} />
+                <img src={img} alt={`bag${index + 1}`} />
               </div>
             ))}
           </div>
@@ -101,7 +102,9 @@ const Home = () => {
       {/* Best Seller */}
       <div className="product-section">
         <h2>Best Seller</h2>
-        {loading ? <p>Đang tải sản phẩm...</p> : (
+        {loading ? (
+          <p>Đang tải sản phẩm...</p>
+        ) : (
           <div className="product-grid">
             {bestSellers.map(renderProductCard)}
           </div>
@@ -111,10 +114,10 @@ const Home = () => {
       {/* Sale */}
       <div className="product-section">
         <h2>Sale</h2>
-        {loading ? <p>Đang tải sản phẩm...</p> : (
-          <div className="product-grid">
-            {sales.map(renderProductCard)}
-          </div>
+        {loading ? (
+          <p>Đang tải sản phẩm...</p>
+        ) : (
+          <div className="product-grid">{sales.map(renderProductCard)}</div>
         )}
       </div>
     </div>
