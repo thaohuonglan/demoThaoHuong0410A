@@ -15,6 +15,8 @@ import ProductDetail from "./ProductDetail";
 // @ts-ignore
 import Cart from "./Cart";
 // @ts-ignore
+import PaymentPage from "./PaymentPage";
+// @ts-ignore
 import DangNhap from "./DangNhap";
 // @ts-ignore
 import LogoutPage from "./LogoutPage";
@@ -42,6 +44,7 @@ export default function App() {
           <Route path="chitiet/:id" element={<Chitietsanpham />} />
           <Route path="/productdetail/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="/payment" element={<PaymentPage />} />
           {/* Trang đăng nhập / đăng xuất */}
           <Route path="login" element={<DangNhap />} />
           <Route path="logout" element={<LogoutPage />} />
