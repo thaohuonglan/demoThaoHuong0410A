@@ -55,6 +55,12 @@ export default function Cart() {
     navigate("/payment", { state: { cart: updatedCart, user } });
   };
 
+  // Handle clear cart
+  const handleClearCart = () => {
+    clearCart(); // Call clearCart from context
+    setUpdatedCart([]); // Update local state to empty array
+  };
+
   if (updatedCart.length === 0) {
     return (
       <div className="cart-container">
@@ -92,7 +98,7 @@ export default function Cart() {
       <div className="cart-summary">
         <h3>Tổng tiền: {totalPrice.toLocaleString("vi-VN")} VND</h3>
         <div className="cart-buttons">
-          <button className="btn-clear" onClick={clearCart}>
+          <button className="btn-clear" onClick={handleClearCart}>
             Xóa toàn bộ
           </button>
           <button className="btn-checkout" onClick={handleCheckout}>
