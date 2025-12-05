@@ -181,7 +181,7 @@ const UserManagement = () => {
 
   return (
     <div style={styles.page}>
-      <h2 style={styles.title}>👤 Quản lý người dùng (Admin)</h2>
+      <h2 style={styles.title}>👤 Quản lý người dùng</h2>
 
       <form onSubmit={editingUser ? handleEdit : handleAdd} style={styles.form}>
         <h3 style={styles.formTitle}>

@@ -38,7 +38,13 @@ const ProductManagement = () => {
     if (error) alert("❌ Lỗi khi thêm sản phẩm: " + error.message);
     else {
       alert("✅ Thêm sản phẩm thành công!");
-      setNewProduct({ title: "", price: "", image: "", rating_rate: "", rating_count: "" });
+      setNewProduct({
+        title: "",
+        price: "",
+        image: "",
+        rating_rate: "",
+        rating_count: "",
+      });
       fetchProducts();
     }
   };
@@ -46,7 +52,10 @@ const ProductManagement = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     const { id, ...updated } = editingProduct;
-    const { error } = await supabase.from("sanpham").update(updated).eq("id", id);
+    const { error } = await supabase
+      .from("sanpham")
+      .update(updated)
+      .eq("id", id);
     if (error) alert("❌ Lỗi khi cập nhật sản phẩm: " + error.message);
     else {
       alert("✅ Cập nhật sản phẩm thành công!");
@@ -184,9 +193,12 @@ const ProductManagement = () => {
 
   return (
     <div style={styles.page}>
-      <h2 style={styles.title}>🛠️ Quản lý sản phẩm (Admin)</h2>
+      <h2 style={styles.title}>🛠️ Quản lý sản phẩm</h2>
 
-      <form onSubmit={editingProduct ? handleEdit : handleAdd} style={styles.form}>
+      <form
+        onSubmit={editingProduct ? handleEdit : handleAdd}
+        style={styles.form}
+      >
         <h3 style={styles.formTitle}>
           {editingProduct ? "✏️ Chỉnh sửa sản phẩm" : "➕ Thêm sản phẩm mới"}
         </h3>
@@ -225,7 +237,11 @@ const ProductManagement = () => {
             max="5"
             step="0.1"
             placeholder="Đánh giá (0–5)"
-            value={editingProduct ? editingProduct.rating_rate : newProduct.rating_rate}
+            value={
+              editingProduct
+                ? editingProduct.rating_rate
+                : newProduct.rating_rate
+            }
             onChange={handleChange}
           />
           <input
@@ -234,7 +250,11 @@ const ProductManagement = () => {
             type="number"
             min="0"
             placeholder="Số lượt đánh giá"
-            value={editingProduct ? editingProduct.rating_count : newProduct.rating_count}
+            value={
+              editingProduct
+                ? editingProduct.rating_count
+                : newProduct.rating_count
+            }
             onChange={handleChange}
           />
         </div>
@@ -260,18 +280,30 @@ const ProductManagement = () => {
           <div
             key={p.id}
             style={styles.productCard}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-5px)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "translateY(-5px)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0)")
+            }
           >
             <img src={p.image} alt={p.title} style={styles.productImage} />
             <h4 style={styles.productTitle}>{p.title}</h4>
             <p style={styles.price}>${p.price}</p>
-            <p style={styles.rating}>⭐ {p.rating_rate} ({p.rating_count})</p>
+            <p style={styles.rating}>
+              ⭐ {p.rating_rate} ({p.rating_count})
+            </p>
             <div style={styles.cardButtons}>
-              <button onClick={() => setEditingProduct(p)} style={styles.editBtn}>
+              <button
+                onClick={() => setEditingProduct(p)}
+                style={styles.editBtn}
+              >
                 Sửa
               </button>
-              <button onClick={() => handleDelete(p.id)} style={styles.deleteBtn}>
+              <button
+                onClick={() => handleDelete(p.id)}
+                style={styles.deleteBtn}
+              >
                 Xóa
               </button>
             </div>

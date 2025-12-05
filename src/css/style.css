@@ -489,3 +489,93 @@ footer {
     height: 230px;
   }
 }
+
+/* ================= Layout ================= */
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: sans-serif;
+}
+
+/* ============= SIDEBAR ============= */
+.admin-sidebar {
+  width: 240px;
+  background: #1e293b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  position: fixed;
+  height: 100vh;
+}
+
+.sidebar-logo img {
+  width: 70%;
+  display: block;
+  margin: 10px auto 20px auto;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin: 12px 0;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 12px 20px;
+  display: block;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+.sidebar-menu a:hover {
+  background: #334155;
+  color: #fff;
+  border-left: 4px solid #38bdf8;
+}
+
+/* ============= MAIN CONTENT ============= */
+.admin-main {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+}
+
+/* Header Right */
+.admin-header {
+  background: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-user span {
+  margin-right: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Logout Button */
+.logout-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+.admin-content {
+  padding: 20px;
+}
