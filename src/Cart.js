@@ -38,7 +38,6 @@ export default function Cart() {
       )
     );
   };
-
   const handleIncrease = (item) => updateQuantity(item.id, item.quantity + 1);
   const handleDecrease = (item) => updateQuantity(item.id, item.quantity - 1);
   const handleRemove = (id) => {

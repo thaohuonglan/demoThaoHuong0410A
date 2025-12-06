@@ -15,7 +15,7 @@ const PaymentPage = () => {
   });
 
   const [totalPrice, setTotalPrice] = useState(0);
-
+  
   useEffect(() => {
     // Lấy thông tin người dùng từ localStorage
     const storedUser = JSON.parse(localStorage.getItem("currentUser"));

@@ -11,7 +11,6 @@ const BrandProduct = () => {
 
   useEffect(() => {
     if (!brand) return;
-
     const fetchBrandProducts = async () => {
       setLoading(true);
       try {
@@ -19,7 +18,6 @@ const BrandProduct = () => {
           .from("sanpham")
           .select("*")
           .ilike("category", brand);
-
         if (error) throw error;
         setBrandProducts(data);
       } catch (err) {
@@ -28,7 +26,6 @@ const BrandProduct = () => {
         setLoading(false);
       }
     };
-
     fetchBrandProducts();
   }, [brand]);
 
@@ -70,7 +67,6 @@ const BrandProduct = () => {
               >
                 <i className="fa-solid fa-cart-plus"></i> Thêm vào giỏ
               </button>
-
               <button
                 className="btn-buy-now"
                 onClick={() => {

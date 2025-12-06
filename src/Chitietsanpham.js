@@ -25,15 +25,12 @@ export default function Chitietsanpham() {
       } else {
         setProduct(data);
       }
-
       setLoading(false);
     };
-
     fetchProduct();
   }, [id]);
 
   if (loading) return <p style={{ padding: 20 }}>Đang tải...</p>;
-
   if (!product) {
     return (
       <div style={{ padding: 20 }}>
@@ -48,7 +45,6 @@ export default function Chitietsanpham() {
     addToCart(product);
     window.location.href = "/cart";
   };
-
   const handleBuyNow = (product) => {
     addToCart(product);
     window.location.href = "/cart";

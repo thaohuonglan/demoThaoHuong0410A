@@ -19,7 +19,6 @@ export default function ProductDetail() {
           .select("*")
           .eq("id", id)
           .single();
-
         if (error) throw error;
         setProduct(data);
       } catch (err) {
